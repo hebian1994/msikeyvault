@@ -1,0 +1,4 @@
+Azure==Managed Identity to access Azure key vault==在azure虚拟机上不使用密码从key vault获取secret并在java程序中使用
+
+访问
+    http://20.239.162.143:8081/
