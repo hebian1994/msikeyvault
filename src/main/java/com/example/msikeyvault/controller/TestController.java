@@ -23,6 +23,11 @@ public class TestController {
     private static final ObjectMapper objectMapper = new ObjectMapper()
             .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 
+    @RequestMapping("/test")
+    public String get2() {
+        return "6666666666";
+    }
+
     @RequestMapping("/")
     public String get() {
 
