@@ -25,7 +25,10 @@ public class MsikeyvaultApplication {
         SpringApplication.run(MsikeyvaultApplication.class, args);
 
         System.out.println("77777777777777");
-        File toDelteFile = new File("/opt/module/youfilename.pfx");
+        String path = System.getProperty("user.dir") + "/";
+        System.out.println("路径");
+        System.out.println(path);
+        File toDelteFile = new File(path + "youfilename.pfx");
         if (toDelteFile.delete()) {
             System.out.println("stared---Deleted the certificate file: " + toDelteFile.getName());
         } else {
@@ -74,6 +77,11 @@ public class MsikeyvaultApplication {
 
 
     public static void init2() {
+        String path = System.getProperty("user.dir") + "/";
+        System.out.println("路径");
+        System.out.println(path);
+
+
         //获取azure token
         String access_token = getKeyVaultToken();
         String keyVaultName = "mykv0614";
@@ -104,7 +112,8 @@ public class MsikeyvaultApplication {
         }
 
         String fileName = "youfilename.pfx";
-        File fileRes = new File("/opt/module/" + fileName);
+//        File fileRes = new File("/opt/module/" + fileName);
+        File fileRes = new File(path + fileName);
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(fileRes);
