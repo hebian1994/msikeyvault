@@ -23,6 +23,14 @@ public class MsikeyvaultApplication {
         init2();
 //        init3();
         SpringApplication.run(MsikeyvaultApplication.class, args);
+
+        System.out.println("77777777777777");
+        File toDelteFile = new File("/opt/module/youfilename.pfx");
+        if (toDelteFile.delete()) {
+            System.out.println("stared---Deleted the certificate file: " + toDelteFile.getName());
+        } else {
+            System.out.println("Failed to delete the certificate file.");
+        }
     }
 
 //    本地使用拷贝后的证书
