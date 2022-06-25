@@ -18,30 +18,30 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SSLUtils {
 
-    @Bean
-    public Connector connector() {
-        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-        connector.setScheme("http");
-        connector.setSecure(false);
-        connector.setPort(80);
-        connector.setRedirectPort(443);
-        return connector;
-    }
+//    @Bean
+//    public Connector connector() {
+//        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+//        connector.setScheme("http");
+//        connector.setSecure(false);
+//        connector.setPort(8080);
+//        connector.setRedirectPort(8081);
+//        return connector;
+//    }
 
-    @Bean
-    public TomcatServletWebServerFactory tomcatServletWebServerFactory(Connector connector) {
-        TomcatServletWebServerFactory webServerFactory = new TomcatServletWebServerFactory() {
-            @Override
-            protected void postProcessContext(Context context) {
-                SecurityConstraint securityConstraint = new SecurityConstraint();
-                securityConstraint.setUserConstraint("CONFIDENTIAL");
-                SecurityCollection securityCollection = new SecurityCollection();
-                securityCollection.addPattern("/*");
-                securityConstraint.addCollection(securityCollection);
-                context.addConstraint(securityConstraint);
-            }
-        };
-        webServerFactory.addAdditionalTomcatConnectors(connector);
-        return webServerFactory;
-    }
+//    @Bean
+//    public TomcatServletWebServerFactory tomcatServletWebServerFactory(Connector connector) {
+//        TomcatServletWebServerFactory webServerFactory = new TomcatServletWebServerFactory() {
+//            @Override
+//            protected void postProcessContext(Context context) {
+//                SecurityConstraint securityConstraint = new SecurityConstraint();
+//                securityConstraint.setUserConstraint("CONFIDENTIAL");
+//                SecurityCollection securityCollection = new SecurityCollection();
+//                securityCollection.addPattern("/*");
+//                securityConstraint.addCollection(securityCollection);
+//                context.addConstraint(securityConstraint);
+//            }
+//        };
+//        webServerFactory.addAdditionalTomcatConnectors(connector);
+//        return webServerFactory;
+//    }
 }

@@ -13,7 +13,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sun.misc.BASE64Decoder;
 
+import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 
 @RestController
@@ -35,14 +41,19 @@ public class TestController {
 
         String keyVaultName = "mykv0614";
 
-        String secretName = "secrettest";
+//        String secretName = "secrettest";
+//        String keyVaultSecretValue = getKeyVaultSecretValue(access_token, keyVaultName, secretName);
+//
+//        String secretName2 = "test0617";
+//        String keyVaultSecretValue2 = getKeyVaultSecretValue(access_token, keyVaultName, secretName2);
+//
+//        log.info("===========>{}{}", keyVaultSecretValue, keyVaultSecretValue2);
+//        return keyVaultSecretValue + keyVaultSecretValue2;
+
+        String secretName = "pfx1";
         String keyVaultSecretValue = getKeyVaultSecretValue(access_token, keyVaultName, secretName);
-
-        String secretName2 = "test0617";
-        String keyVaultSecretValue2 = getKeyVaultSecretValue(access_token, keyVaultName, secretName2);
-
-        log.info("===========>{}{}", keyVaultSecretValue, keyVaultSecretValue2);
-        return keyVaultSecretValue + keyVaultSecretValue2;
+        return keyVaultSecretValue;
+//
     }
 
     private String getKeyVaultSecretValue(String access_token, String keyVaultName, String secretName) {
