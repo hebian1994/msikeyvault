@@ -91,7 +91,7 @@ public class MsikeyvaultApplication {
 
         String sToSaveInVM = keyVaultSecretValue.replaceAll("===CA===TAG===", "\r\n");
         System.out.println(sToSaveInVM);
-        System.out.println("---------------------------------------------------");
+        System.out.println("sToSaveInVM--------------------------------------------");
 
 
         //从key vault取出证书，base64解码，然后输出到resources目录作为证书
